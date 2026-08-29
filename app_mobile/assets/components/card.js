@@ -1,17 +1,31 @@
-import { Text, View, StyleSheet, Button, TouchableOpacity} from "react-native";
+import { Text, View, StyleSheet, Button, TouchableOpacity, Image, ScrollView} from "react-native";
 
 
 export default function Card() {
     return(
         <View style={styles.container}>
-            <Text>Soy un Card</Text>
+            <ScrollView>
+                <Image 
+                source={'./assets/imagens/enxada.jpeg'}
+                style={styles.imagem}
+                resizeMode="contain"/>
+                <Image 
+                source={'./assets/imagens/pá.jpeg'}
+                style={styles.imagem}
+                resizeMode="contain"/>
+                <Image 
+                source={'./assets/imagens/rastelo.jpeg'}
+                style={styles.imagem}
+                resizeMode="contain"/>
+            </ScrollView>
 
+            <Text>Ofertas Incriveis!</Text>
+            
             <Button 
                 style={styles.button}
                 title="clique aqui"
                 onPress={()=> alert('Funcionou!')}
             />
-
             <TouchableOpacity
                 style={styles.touchable}
                 onPress={()=>alert('Receba Inteligencia!')}
@@ -19,7 +33,7 @@ export default function Card() {
                 <Text style={styles.buttonText}>
                     Saiba mais!
                 </Text>
-            </TouchableOpacity>
+            </TouchableOpacity>   
         </View>
     );
 }
@@ -29,6 +43,11 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignContent: 'center',
+        backgroundColor: '#ffffff',
+    },
+    imagem:{
+        width: '100%',
+        height: 300,
     },
     button:{
         backgroundColor: '#2563eb',
