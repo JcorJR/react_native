@@ -22,26 +22,27 @@ export default function App() {
   }
 ];
   return ( 
+    <ImageBackground
+      source={require('./assets/imagens/fundo.jpeg')}
+      style={styles.background}
+    >
       <View style={styles.container}>
+        
         <Text style={styles.title}> Meu App</Text>
         <Text style={styles.text}>Bem Vienido!</Text>
+        
+        <FlatList
+          data={produtos}
+          keyExtractor={(item) => item.id}
+          renderItem={({ item }) => (
+            <Text>{item.nome} - R$ {item.preco}</Text>
+          )}
+        />
 
         <Card />
 
-        <ScrollView 
-        contentContainerStyle={styles.content}> 
-          <Text>Item 1</Text>
-          <Text>Item 2</Text>
-          <Text>Item 3</Text>
-          <Text>Item 4</Text>
-        </ScrollView>
-
-        <FlatList
-        data={produtos}
-        keyExtractor={(item)=>item.id}
-        renderItem={({item}) => (<Text>{item.nome}</Text>)}
-        />
       </View>
+    </ImageBackground>
   );
 }
 
