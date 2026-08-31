@@ -4,34 +4,39 @@ import { Text, View, StyleSheet, Button, TouchableOpacity, Image, ScrollView} fr
 export default function Card() {
     return(
         <View style={styles.container}>
-            <ScrollView>
+            <ScrollView
+                horizontal
+                pagingEnabled 
+                contentContainerStyle={styles.scroll}
+            >
                 <Image 
-                source={'./assets/imagens/enxada.jpeg'}
+                source={require('../imagens/enxada.jpeg')}
                 style={styles.imagem}
-                resizeMode="contain"/>
+                resizeMode="cover"/>
                 <Image 
-                source={'./assets/imagens/pá.jpeg'}
+                source={require('../imagens/pá.jpeg')}
                 style={styles.imagem}
-                resizeMode="contain"/>
+                resizeMode="cover"/>
                 <Image 
-                source={'./assets/imagens/rastelo.jpeg'}
+                source={require('../imagens/rastelo.jpeg')}
                 style={styles.imagem}
-                resizeMode="contain"/>
-            </ScrollView>
+                resizeMode="cover"/>
+            </ScrollView> 
 
-            <Text>Ofertas Incriveis!</Text>
-            
-            <Button 
-                style={styles.button}
-                title="clique aqui"
-                onPress={()=> alert('Funcionou!')}
-            />
+            <Text style={styles.textCard}>Ofertas Incriveis!</Text>
+            <View style={styles.button}>
+                <Button 
+                    title="COMPRE JÁ!"
+                    onPress={()=> alert('A caminho!')}
+                    color="#16A34A"
+                />
+            </View>
             <TouchableOpacity
                 style={styles.touchable}
                 onPress={()=>alert('Receba Inteligencia!')}
             >
-                <Text style={styles.buttonText}>
-                    Saiba mais!
+                <Text style={styles.touchableText}>
+                    Ver detalhes
                 </Text>
             </TouchableOpacity>   
         </View>
@@ -40,30 +45,47 @@ export default function Card() {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignContent: 'center',
-        backgroundColor: '#ffffff',
+        backgroundColor: '#F8FAFC',
+        overflow: 'hidden',
+        borderRadius: 18,
+        paddingBottom: 18,
+        width: '90%,',
+        maxWidth: 700,
+        alignSelf:'center',
+    },
+    scroll:{
+        width:'100%',
+        flexDirection:'row',
+        height: 400,
     },
     imagem:{
-        width: '100%',
-        height: 300,
+        height: '100%',
+    },
+    textCard:{
+        fontSize: 25,
+        fontWeight: 'bold',
+        color: '#050505',
+        textAlign: 'center',
+        marginTop: 18,
+        marginBottom: 18,
     },
     button:{
-        backgroundColor: '#2563eb',
-        paddingVertical: 12,
-        paddingHorizontal: 30,
-        borderRadius: 8,
+        marginHorizontal: 20,
+        marginBottom: 10,
+        borderRadius: 7,
+        overflow: 'hidden',
     },
     touchable: {
-        backgroundColor: '#ebe825',
-        paddingVertical: 12,
-        paddingHorizontal: 30,
-        borderRadius: 8,
+        backgroundColor: '#8B0000',
+        marginHorizontal: 20,
+        paddingVertical: 11,
+        borderRadius: 7,
+        alignItems: 'center',
+        elevation: 2,
     },
-    buttonText: {
-        color: '#ffffff',
-        fontSize: 18,
+    touchableText: {
+        color: '#FFFFFF',
+        fontSize: 16,
         fontWeight: 'bold',
     },
 });

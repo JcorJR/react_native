@@ -2,42 +2,44 @@ import React from 'react';
 import {Text, View, Image, ImageBackground,FlatList,ScrollView } from 'react-native';
 import styles from './styles/styles'
 import Card from './assets/components/card';
+import Item from './assets/components/Item';
 
-export default function App() {
-  const produtos = [
+const categorias = [
   {
     id: '1',
-    nome: 'Notebook',
-    preco: '3500'
+    nome: 'Pás',
   },
   {
     id: '2',
-    nome: 'Celular',
-    preco: '2200'
+    nome: 'Rastelos',
   },
   {
     id: '3',
-    nome: 'Tablet',
-    preco: '1800'
-  }
-];
+    nome: 'Enxadas',
+  },
+]
+
+export default function App() {
   return ( 
     <ImageBackground
       source={require('./assets/imagens/fundo.jpeg')}
       style={styles.background}
+      resizeMode="cover"
     >
       <View style={styles.container}>
-        
-        <Text style={styles.title}> Meu App</Text>
-        <Text style={styles.text}>Bem Vienido!</Text>
+
+        <Text style={styles.title}> FaZenda</Text>
+        <Text style={styles.text}>Todas as ferrementas que seu lote precisa em um só lugar</Text>
         
         <FlatList
-          data={produtos}
+          data={categorias}
+          horizontal
           keyExtractor={(item) => item.id}
           renderItem={({ item }) => (
-            <Text>{item.nome} - R$ {item.preco}</Text>
+            <Item nome={item.nome}/>
           )}
-        />
+          contentContainerStyle={styles.lista}
+        /> 
 
         <Card />
 

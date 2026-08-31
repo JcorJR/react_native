@@ -8,20 +8,28 @@ const styles = StyleSheet.create({
     },
     container: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-       
+        padding: 60,
     },
     title: {
-        marginTop: 27,
-        fontSize: 24,
+        fontSize: 34,
         fontWeight: 'bold',
         color: '#050404',
+        textAlign:'center',
+        marginTop:10,
     },
     text: {
         fontSize: 18,
         color: '#5a5757',
+        textAlign: 'center',
+        marginTop: 4,
+        marginBottom: 20,
     },
+    lista: {
+        flexGrow: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        paddingBottom: 20,
+  },
     
 });
 
